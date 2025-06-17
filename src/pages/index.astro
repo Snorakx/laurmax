@@ -1,16 +1,170 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Hero } from '../components/Hero/index';
+import { About } from '../components/About/index';
+import { Services } from '../components/Services/index';
+import { Contact } from '../components/Contact/index';
+import { LanguageSwitcher } from '../components/LanguageSwitcher/index';
+import { Navigation } from '../components/Navigation/index';
+import { ProgressDots } from '../components/ProgressDots/index';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Laurmax - Smart Websites, Real Results"
+  description="At Laurmax, we craft smart, high-performing websites that help businesses grow online with confidence. Custom WordPress development, Shopify solutions, SEO optimization."
+  lang="en"
+>
+  <!-- Navigation -->
+  <Navigation client:load />
+  
+  <!-- Language Switcher -->
+  <LanguageSwitcher client:load />
+  
+  <!-- Progress Dots Navigation -->
+  <ProgressDots client:load />
+  
+  <!-- Main Content Sections - Reels Style -->
+  <main class="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <!-- Hero Section -->
+    <Hero client:load />
+    
+    <!-- About Section -->
+    <About client:load />
+    
+    <!-- Services Section -->
+    <Services client:load />
+    
+    <!-- Contact Section -->
+    <Contact client:load />
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-dark-100 text-white py-16 lg:py-20 border-t border-dark-300/20 relative overflow-hidden">
+    <!-- Footer background pattern -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="tech-grid"></div>
+    </div>
+    
+    <!-- Floating orbs -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-10 right-20 w-64 h-64 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-3xl animate-float"></div>
+      <div class="absolute bottom-10 left-20 w-80 h-80 bg-gradient-to-br from-tech-cyan/10 to-transparent rounded-full blur-3xl animate-float" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center mb-8">
+            <div class="relative">
+              <span class="text-4xl font-black text-white tracking-tight">
+                LAURMA
+              </span>
+              <span class="relative">
+                <span class="text-4xl font-black text-white">X</span>
+                <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full -z-10"></div>
+                <div class="absolute inset-0 bg-yellow-400 rounded-full blur-sm opacity-50 -z-10"></div>
+              </span>
+            </div>
+          </div>
+          <p class="text-dark-600 leading-relaxed mb-10 text-lg font-medium max-w-md">
+            Smart websites that deliver real results. We help businesses grow online with confidence through cutting-edge web solutions.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="group relative w-14 h-14 bg-dark-200/50 backdrop-blur-sm border border-dark-300/30 rounded-xl flex items-center justify-center hover:border-yellow-400/50 transition-all duration-500">
+              <span class="text-lg font-black text-yellow-400">F</span>
+              <div class="absolute inset-0 bg-yellow-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            <a href="#" class="group relative w-14 h-14 bg-dark-200/50 backdrop-blur-sm border border-dark-300/30 rounded-xl flex items-center justify-center hover:border-yellow-400/50 transition-all duration-500">
+              <span class="text-lg font-black text-yellow-400">I</span>
+              <div class="absolute inset-0 bg-yellow-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            <a href="#" class="group relative w-14 h-14 bg-dark-200/50 backdrop-blur-sm border border-dark-300/30 rounded-xl flex items-center justify-center hover:border-yellow-400/50 transition-all duration-500">
+              <span class="text-lg font-black text-yellow-400">Y</span>
+              <div class="absolute inset-0 bg-yellow-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-2xl font-black text-white mb-8">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="#about" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">About Us</a></li>
+            <li><a href="#services" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">Services</a></li>
+            <li><a href="#contact" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h4 class="text-2xl font-black text-white mb-8">Services</h4>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">Web Development</a></li>
+            <li><a href="#" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">SEO Optimization</a></li>
+            <li><a href="#" class="text-dark-600 hover:text-yellow-400 transition-colors duration-300 font-medium text-lg hover:translate-x-2 inline-block transform transition-transform">Maintenance</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Tech separator -->
+      <div class="flex justify-center my-16">
+        <div class="flex space-x-2">
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 8px; animation-delay: 0s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 16px; animation-delay: 0.1s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 24px; animation-delay: 0.2s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 32px; animation-delay: 0.3s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 40px; animation-delay: 0.4s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 48px; animation-delay: 0.5s;"></div>
+          <div class="w-1 bg-gradient-to-t from-yellow-400 to-yellow-500 rounded-full animate-pulse" style="height: 56px; animation-delay: 0.6s;"></div>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-dark-300/20 pt-12 flex flex-col sm:flex-row justify-between items-center">
+        <p class="text-dark-600 text-lg font-medium">
+          © 2024 Laurmax. All rights reserved.
+        </p>
+        <div class="flex space-x-8 mt-6 sm:mt-0">
+          <a href="#" class="text-dark-600 hover:text-yellow-400 text-lg font-medium transition-colors duration-300">Privacy Policy</a>
+          <a href="#" class="text-dark-600 hover:text-yellow-400 text-lg font-medium transition-colors duration-300">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer glow -->
+    <div class="absolute inset-0 bg-gradient-to-t from-yellow-400/3 via-transparent to-transparent pointer-events-none"></div>
+  </footer>
+</BaseLayout>
+
+<style>
+  /* Basic smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Tech grid pattern */
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(250, 204, 21, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250, 204, 21, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  /* Float animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(1deg);
+    }
+    66% {
+      transform: translateY(10px) rotate(-1deg);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>

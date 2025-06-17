@@ -1,0 +1,138 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title = 'Laurmax - Smart Websites, Real Results', description = 'At Laurmax, we craft smart, high-performing websites that help businesses grow online with confidence.', lang = 'en' } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- Preload fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags for SEO -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body class="antialiased bg-dark-100 text-dark-900 overflow-x-hidden">
+    <!-- Background pattern -->
+    <div class="fixed inset-0 bg-tech-pattern opacity-20 pointer-events-none"></div>
+    
+    <!-- Gradient overlays -->
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-900/10 via-transparent to-tech-cyan/5"></div>
+      <div class="absolute top-1/4 right-0 w-96 h-96 bg-tech-blue/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <slot />
+    
+    <!-- GSAP CDN for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+      // Wait for GSAP to load
+      window.addEventListener('load', () => {
+        // @ts-ignore
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+          // Register GSAP plugins
+          // @ts-ignore
+          gsap.registerPlugin(ScrollTrigger);
+          
+          // Enhanced smooth scroll setup
+          // @ts-ignore
+          ScrollTrigger.config({
+            autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+          });
+          
+          // Tech grid animation
+          // @ts-ignore
+          gsap.to('.tech-grid', {
+            backgroundPosition: '100px 100px',
+            duration: 20,
+            ease: "none",
+            repeat: -1
+          });
+        }
+      });
+    </script>
+    
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Poppins', 'Roboto', sans-serif;
+        background: #09090b;
+        position: relative;
+      }
+      
+      /* Custom scrollbar - dark theme */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #18181b;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b;
+      }
+      
+      /* Tech grid pattern */
+      .tech-grid {
+        background-image: 
+          linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: techGridMove 20s linear infinite;
+      }
+      
+      @keyframes techGridMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 50px 50px; }
+      }
+      
+      /* Glow effects */
+      .glow-blue {
+        box-shadow: 0 0 30px rgba(14, 165, 233, 0.3);
+      }
+      
+      .glow-cyan {
+        box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+      }
+      
+      /* Selection color */
+      ::selection {
+        background: rgba(14, 165, 233, 0.3);
+      }
+    </style>
+  </body>
+</html> 
