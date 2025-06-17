@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ProjectCalculator } from '../components/Calculator/ProjectCalculator';
+import { getCalculatorTemplate } from '../components/Calculator/data';
+
+// Get calculator type and language from URL params
+const url = Astro.url;
+const calculatorType = url.searchParams.get('type') || 'website';
+const language = (url.searchParams.get('lang') || 'en') as 'pl' | 'en';
+
+const template = getCalculatorTemplate(calculatorType, language);
+---
+
+<BaseLayout title="Project Estimate - LAURMAX">
+  <ProjectCalculator 
+    template={template}
+    initialLanguage={language}
+    client:load
+  />
+</BaseLayout> 

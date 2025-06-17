@@ -277,7 +277,7 @@ export const ProjectCalculator: React.FC<ProjectCalculatorProps> = ({
                   </motion.button>
                 ) : (
                   <motion.button
-                    onClick={() => window.location.href = '/wyceń-projekt'}
+                    onClick={() => window.location.href = '/estimate-project'}
                     className="flex items-center gap-2 px-6 py-3 bg-slate-700 text-white rounded-xl font-semibold hover:bg-slate-600 transition-all duration-200"
                     whileHover={{ scale: 1.02, x: -5 }}
                     whileTap={{ scale: 0.98 }}

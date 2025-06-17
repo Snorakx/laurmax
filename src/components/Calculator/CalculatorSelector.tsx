@@ -56,7 +56,7 @@ export const CalculatorSelector: React.FC = () => {
   const calculatorTypes = getCalculatorTypes(t);
 
   const handleCalculatorSelect = (calculatorId: string) => {
-    window.location.href = `/wycena-projektu?type=${calculatorId}&lang=${language}`;
+    window.location.href = `/project-estimate?type=${calculatorId}&lang=${language}`;
   };
 
   return (

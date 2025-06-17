@@ -42,7 +42,7 @@ export const Navigation: React.FC = () => {
     { label: 'Home', id: 'hero' },
     { label: 'About', id: 'about' },
     { label: 'Services', id: 'services' },
-    { label: 'Wycena', id: 'pricing', isExternal: true },
+    { label: 'Pricing', id: 'pricing', isExternal: true },
     { label: 'Contact', id: 'contact' }
   ];
 
@@ -80,7 +80,7 @@ export const Navigation: React.FC = () => {
                 key={item.id}
                 onClick={() => {
                   if (item.isExternal && item.id === 'pricing') {
-                    window.location.href = '/wyceń-projekt?lang=en';
+                    window.location.href = '/estimate-project?lang=en';
                   } else {
                     scrollToSection(item.id);
                   }
@@ -99,7 +99,7 @@ export const Navigation: React.FC = () => {
 
           {/* CTA Button */}
           <motion.button
-            onClick={() => window.location.href = '/wyceń-projekt?lang=en'}
+            onClick={() => window.location.href = '/estimate-project?lang=en'}
             className="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-amber-400 text-slate-900 font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/25"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -107,7 +107,7 @@ export const Navigation: React.FC = () => {
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span>Wyceń Projekt</span>
+            <span>Estimate Project</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
